@@ -21,28 +21,28 @@ public:
         }
         return obj_;
     }
-    
+
     operator T()
     {
-        return *getValue();
+        return getValue();
     }
-    
+
     auto& operator* ()
     {
         return *getValue();
     }
-    
+
     auto& operator-> ()
     {
         return getValue();
     }
-    
+
     lazy_ctor<T>& operator= (const lazy_ctor<T>& other) {
         fun_ = other.fun_;
         is_initialized_ = false;
         return *this;
     }
-    
+
 private:
     std::function<T()> fun_;
     T obj_;
